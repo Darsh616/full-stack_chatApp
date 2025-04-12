@@ -21,13 +21,13 @@ spec:
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
           valueFrom:
-            configMapKeyRef:
-              name: config # It has to the name used in configmap metadata! 
+            secretKeyRef:
+              name: mysecret # It has to the name used in secret metadata! 
               key: MONGO_INITDB_ROOT_USERNAME
         - name: MONGO_INITDB_ROOT_PASSWORD
           valueFrom:
-            configMapKeyRef:
-              name: config
+            secretKeyRef:
+              name: mysecret
               key: MONGO_INITDB_ROOT_PASSWORD
         volumeMounts:
         - name: mongodb-data

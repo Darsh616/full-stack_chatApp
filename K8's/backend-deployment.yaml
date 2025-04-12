@@ -21,19 +21,22 @@ spec:
         env: 
         - name: NODE_ENV
           valueFrom:
-            configMapKeyRef:
-              name: config
+            secretKeyRef:
+              name: mysecret
               key: NODE_ENV
         - name: PORT
-          value: "5001"
-        - name: MONGODB_URI
           valueFrom:
             configMapKeyRef:
               name: config
+              key: Backend-port
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
               key: MONGODB_URI
         - name : JWT_SECRET
           valueFrom:
-            configMapKeyRef:
-              name: config
+            secretKeyRef:
+              name: mysecret
               key: JWT_SECRET
   

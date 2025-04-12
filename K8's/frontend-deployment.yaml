@@ -21,6 +21,6 @@ spec:
         env:
         - name: NODE_ENV
           valueFrom:
-            configMapKeyRef:
-              name: config
+            secretKeyRef:
+              name: mysecret
               key: NODE_ENV
