@@ -20,9 +20,15 @@ spec:
         - containerPort: 27017
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
-          value: mongoadmin  
+          valueFrom:
+            configMapKeyRef:
+              name: config # It has to the name used in configmap metadata! 
+              key: MONGO_INITDB_ROOT_USERNAME
         - name: MONGO_INITDB_ROOT_PASSWORD
-          value: secret
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: MONGO_INITDB_ROOT_PASSWORD
         volumeMounts:
         - name: mongodb-data
           mountPath: /data/db  

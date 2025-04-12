@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+  namespace: chat-app
+data:
+  NODE_ENV: "production"
+  MONGODB_URI: "mongodb://mongoadmin:secret@mongo:27017/?authSource=admin"
+  JWT_SECRET: "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTc0Mzg3OTEzNSwiaWF0IjoxNzQzODc5MTM1fQ.6FTwAR53qaWPL4s9XcNzawlxxZb0hPre9kYsVivTrb8"
+  MONGO_INITDB_ROOT_USERNAME: "mongoadmin"
+  MONGO_INITDB_ROOT_PASSWORD: "secret"

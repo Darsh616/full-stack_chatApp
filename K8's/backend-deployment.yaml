@@ -20,12 +20,20 @@ spec:
         - containerPort: 5001 
         env: 
         - name: NODE_ENV
-          value: production
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: NODE_ENV
         - name: PORT
           value: "5001"
         - name: MONGODB_URI
-          value: "mongodb://mongoadmin:secret@mongo:27017/?authSource=admin"  
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: MONGODB_URI
         - name : JWT_SECRET
-          value: "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTc0Mzg3OTEzNSwiaWF0IjoxNzQzODc5MTM1fQ.6FTwAR53qaWPL4s9XcNzawlxxZb0hPre9kYsVivTrb8"
-
-
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: JWT_SECRET
+  

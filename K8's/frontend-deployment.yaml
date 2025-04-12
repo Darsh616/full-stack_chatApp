@@ -20,4 +20,7 @@ spec:
         - containerPort: 80
         env:
         - name: NODE_ENV
-          value: production
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: NODE_ENV
